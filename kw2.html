@@ -1,0 +1,86 @@
+<head>
+<title>Kube WebApp</title>
+<style>
+div
+{
+font-weight: bold;
+font-size: 17px;
+}
+a
+{
+text-decoration: none;
+color: #19dafa
+}
+h1
+{
+font-size: 40px;
+color: #19dafa
+}
+h3
+{
+font-weight: bold;
+font-size: 20px;
+color: #19dafa
+}
+.button
+{
+width: 200px;
+height: 50px;
+padding:0;
+color: #19dafa;
+background-color:#42455a;
+border-radius:20px;
+border:2px solid transparent;
+background-image:linear-gradient(#42455a,#42455a),radial-gradient(circle at top left,#fd00da,#19d7f8);  
+background-origin:border-box;
+background-clip:content-box,border-box;
+}
+.button span
+{
+display:block;
+padding:6px 20px;
+}
+#in1
+{
+font-size: 20px;
+width: 350px;
+height: 40px;
+color: #19dafa;
+background-color:#42455a;
+}
+span
+{
+font-size: 25px;
+}
+</style>
+
+<script>
+    function fun1(){
+        var i = document.getElementById("in1").value
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","http://10.0.2.15/cgi-bin/kw.py?x=" + i, true);
+        xhr.send();
+
+        xhr.onload = function () {
+        var op = xhr.responseText;
+        document.getElementById("d1").innerHTML = op;
+        }
+    }
+</script>
+
+</head>
+
+<body bgcolor=#42455a>
+<h1><i><marquee>Kube WebApp</marquee></i></h1>
+<hr/>
+<br/>
+<div><center><pre><a href="kw.html">	Launched Container	</a>  <a href="kw1.html">	Show Pods	</a> <a href="kw2.html">	Show Deployments	</a> <a href="kw3.html">	Expose        </a> <a href="kw4.html">        Replicas        <a><a href="kw5.html">        Delete        </a><pre><center><div>
+
+<center><h3>Enter Your choice :</h3><input id="in1"/><br/><br/><br/>
+
+<pre>
+    <h3 id="d1">Your Output Will Display Here </h3>
+</pre><br/>
+<button class = "button" onclick="fun1()"><span>Click Me</span></button></center>
+</body>
+
